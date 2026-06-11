@@ -500,21 +500,11 @@ with st.sidebar:
         st.session_state.clear()
         st.rerun()
 
-    st.session_state.characters["erina"]["goodwill"] = st.slider(
-        "好感度調整", -500, 500, erina_gw, key="debug_gw_slider"
-    )
-    calling_styles = ["lastname", "firstname", "nickname_erina"]
-    cur_style = st.session_state.characters["erina"]["flags"].get("player_calling_style", "lastname")
-    idx = calling_styles.index(cur_style) if cur_style in calling_styles else 0
-    st.session_state.characters["erina"]["flags"]["player_calling_style"] = st.radio(
-        "呼び方", calling_styles, index=idx, key="debug_calling"
-    )
-    st.markdown("#### 強制イベント")
-    avail = [""] + [e for e in st.session_state.event_conditions if e not in st.session_state.triggered_events]
-    sel_ev = st.selectbox("イベント", avail, key="debug_ev_sel")
-    if sel_ev and st.button(f"'{sel_ev}'強制開始", key="debug_ev_btn"):
-        start_event_streamlit(sel_ev, char_id="erina")
+    def on_gw_slider_change():
+        st.session_state.characters["erina"]["goodwill"] = st.session_state["debug_gw_slider"]
 
+    st.session_state["debug_gw_slider"] = erina_gw  # 毎回現在の好感度に同期
+    st.slider("好感度調整", -500, 500, key="debug_gw_slider", on_change=on_gw_slider_change)
 
 # --- フェーズごとの描画 ---
 
