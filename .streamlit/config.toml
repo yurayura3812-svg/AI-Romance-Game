@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#ff69b4"         # メインカラー（ボタンなど）
+backgroundColor = "#fffafc"      # メイン画面の背景
+secondaryBackgroundColor = "#ffe6f0"  # サイドバーや入力欄の背景
+textColor = "#333333"            # 文字の色
+font = "sans serif"              # フォント（3種から選択）
