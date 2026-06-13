@@ -214,7 +214,7 @@ def update_goodwill(char_id, player_input, ai_response):
     if "無視" in p or "いらない" in p:   kw_change -= 25
 
     total = ai_change + kw_change
-    st.session_state.characters[char_id]["goodwill"] += total
+    st.session_state.characters[char_id]["goodwill"] = max(-500, min(500, st.session_state.characters[char_id]["goodwill"] + total))
     st.session_state.goodwill_history[char_id].append(st.session_state.characters[char_id]["goodwill"])
     st.sidebar.write(f"DEBUG: {char_data['name']}の好感度が{total:+d}変化 → 現在: {st.session_state.characters[char_id]['goodwill']}")
     update_player_calling_style(char_id)
