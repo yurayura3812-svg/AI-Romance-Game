@@ -3,6 +3,7 @@
 **デモ：** https://ai-romance-game-bc4vvgbmskqiernersk4vm.streamlit.app/
 
 > ⚠️ 現在開発中のデモ版です。APIの制限で利用できない可能性もあります。日本語特化モデルへの移行を検討中のため、AIの応答品質が低い場合があります。
+<img width="759" height="521" alt="image" src="https://github.com/user-attachments/assets/d393e828-4ff1-43d2-a7a1-a971edcba7a0" />
 
 ---
 
