@@ -37,37 +37,37 @@ characters = {
         },
         "images": {
             "normal": {
-                "normal": os.path.join(BASE_DIR, "images", "erina", "normal", "erina_normal.png"),
-                "happy": os.path.join(BASE_DIR, "images", "erina", "normal", "erina_happy.png"),
-                "blush": os.path.join(BASE_DIR, "images", "erina", "normal", "erina_blush.png"),
-                "sad":   os.path.join(BASE_DIR, "images", "erina", "normal", "erina_sad.png"),
-                "angry": os.path.join(BASE_DIR, "images", "erina", "normal", "erina_angry.png"),
+                "normal": os.path.join(BASE_DIR, "images", "erina", "normal", "normal.png"),
+                "happy": os.path.join(BASE_DIR, "images", "erina", "normal", "happy.png"),
+                "blush": os.path.join(BASE_DIR, "images", "erina", "normal", "blush.png"),
+                "sad":   os.path.join(BASE_DIR, "images", "erina", "normal", "sad.png"),
+                "angry": os.path.join(BASE_DIR, "images", "erina", "normal", "angry.png"),
             },
             "hanami": {
-                "normal": os.path.join(BASE_DIR, "images", "erina", "hanami", "erina_normal.png"),
-                "happy": os.path.join(BASE_DIR, "images", "erina", "hanami", "erina_happy.png"),
-                "blush": os.path.join(BASE_DIR, "images", "erina", "hanami", "erina_blush.png"),
-                "sad":   os.path.join(BASE_DIR, "images", "erina", "hanami", "erina_sad.png"),
-                "angry": os.path.join(BASE_DIR, "images", "erina", "hanami", "erina_angry.png"),
+                "normal": os.path.join(BASE_DIR, "images", "erina", "hanami", "normal.png"),
+                "happy": os.path.join(BASE_DIR, "images", "erina", "hanami", "happy.png"),
+                "blush": os.path.join(BASE_DIR, "images", "erina", "hanami", "blush.png"),
+                "sad":   os.path.join(BASE_DIR, "images", "erina", "hanami", "sad.png"),
+                "angry": os.path.join(BASE_DIR, "images", "erina", "hanami", "angry.png"),
             },
             "natsumatsuri": {
-                "normal": os.path.join(BASE_DIR, "images", "erina", "natsumatsuri", "erina_normal.png"),
-                "happy": os.path.join(BASE_DIR, "images", "erina", "natsumatsuri", "erina_happy.png"),
-                "blush": os.path.join(BASE_DIR, "images", "erina", "natsumatsuri", "erina_blush.png"),
-                "sad":   os.path.join(BASE_DIR, "images", "erina", "natsumatsuri", "erina_sad.png"),
-                "angry": os.path.join(BASE_DIR, "images", "erina", "natsumatsuri", "erina_angry.png"),
+                "normal": os.path.join(BASE_DIR, "images", "erina", "natsumatsuri", "normal.png"),
+                "happy": os.path.join(BASE_DIR, "images", "erina", "natsumatsuri", "happy.png"),
+                "blush": os.path.join(BASE_DIR, "images", "erina", "natsumatsuri", "blush.png"),
+                "sad":   os.path.join(BASE_DIR, "images", "erina", "natsumatsuri", "sad.png"),
+                "angry": os.path.join(BASE_DIR, "images", "erina", "natsumatsuri", "angry.png"),
             },
             "christmas": {
-                "normal": os.path.join(BASE_DIR, "images", "erina", "christmas", "erina_normal.png"),
-                "happy": os.path.join(BASE_DIR, "images", "erina", "christmas", "erina_happy.png"),
-                "blush": os.path.join(BASE_DIR, "images", "erina", "christmas", "erina_blush.png"),
-                "sad":   os.path.join(BASE_DIR, "images", "erina", "christmas", "erina_sad.png"),
-                "angry": os.path.join(BASE_DIR, "images", "erina", "christmas", "erina_angry.png"),
+                "normal": os.path.join(BASE_DIR, "images", "erina", "christmas", "normal.png"),
+                "happy": os.path.join(BASE_DIR, "images", "erina", "christmas", "happy.png"),
+                "blush": os.path.join(BASE_DIR, "images", "erina", "christmas", "blush.png"),
+                "sad":   os.path.join(BASE_DIR, "images", "erina", "christmas", "sad.png"),
+                "angry": os.path.join(BASE_DIR, "images", "erina", "christmas", "angry.png"),
             },
             "confession": {
-                "normal": os.path.join(BASE_DIR, "images", "erina", "confession", "erina_normal.png"),
-                "blush": os.path.join(BASE_DIR, "images", "erina", "confession", "erina_blush.png"),
-                "happy": os.path.join(BASE_DIR, "images", "erina", "confession", "erina_happy.png"),
+                "normal": os.path.join(BASE_DIR, "images", "erina", "confession", "normal.png"),
+                "blush": os.path.join(BASE_DIR, "images", "erina", "confession", "blush.png"),
+                "happy": os.path.join(BASE_DIR, "images", "erina", "confession", "happy.png"),
             },
             "icon": os.path.join(BASE_DIR, "images", "erina", "erina_icon.png")
         },
@@ -299,7 +299,7 @@ def determine_ending():
 
     if goodwill >= 250 and data["flags"].get("confessed", False):
         ending_key = "romance"
-        last_img = os.path.join(BASE_DIR, "images", "erina", "erina_last.png")
+        last_img = os.path.join(BASE_DIR, "images", "erina", "confession", "erina_happy.png")
         if os.path.exists(last_img):
             st.image(last_img, use_container_width=True)
     elif goodwill >= 100:
@@ -399,7 +399,7 @@ def show_scene(char_id, costume_key):
     ).get("background_image") or os.path.join(BASE_DIR, "images", "background", "university_campus.png")
 
     if os.path.exists(bg) and os.path.exists(char_img):
-        combined = composite_multiple_characters(bg, [{"path": char_img, "position": (0.5, 0.9), "scale": 1.5}])
+        combined = composite_multiple_characters(bg, [{"path": char_img, "position": (0.5, 0.9), "scale": 0.8}])
         if combined:
             with background_placeholder:
                 st.image(combined, use_container_width=True)
@@ -513,7 +513,7 @@ if st.session_state.game_phase == "title_screen":
     if os.path.exists(TITLE_IMAGE_PATH):
         result = composite_multiple_characters(
             TITLE_IMAGE_PATH,
-            [{"path": os.path.join(BASE_DIR, "images", "erina", "normal", "erina_normal.png"), "position": (0.5, 1.0), "scale": 1.2}]
+            [{"path": os.path.join(BASE_DIR, "images", "erina", "normal", "normal.png"), "position": (0.5, 1.0), "scale": 0.8}]
         )
         if result:
             st.image(result, use_container_width=True)
@@ -555,7 +555,7 @@ elif st.session_state.game_phase == "event_introduction":
     char_img = intro["character_image_path"]
 
     if bg and os.path.exists(bg) and char_img and os.path.exists(char_img):
-        combined = composite_multiple_characters(bg, [{"path": char_img, "position": (0.5, 0.9), "scale": 1.5}])
+        combined = composite_multiple_characters(bg, [{"path": char_img, "position": (0.5, 0.9), "scale": 0.8}])
         if combined:
             with background_placeholder:
                 st.image(combined, use_container_width=True)
